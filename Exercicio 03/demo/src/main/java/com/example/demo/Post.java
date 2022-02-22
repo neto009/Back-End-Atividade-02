@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,17 +18,16 @@ public class Post {
     private Long id;
     private String title;
 
-    @OneToMany(mappedBy = "postagem")
-    private List<PostComment> comment;
+    @OneToMany(mappedBy = "post")
+    private List<PostComment> comment = new ArrayList<PostComment>();
 
 
     public Post() {
     }
 
-    public Post(Long id, String title, List<PostComment> comment) {
+    public Post(Long id, String title) {
         this.id = id;
         this.title = title;
-        this.comment = comment;
     }
 
     public Long getId() {
@@ -53,12 +54,14 @@ public class Post {
         this.comment = comment;
     }
 
-    public Post addComment() {
-        return this.postagem;
+    public Post addComment(PostComment comentario) {
+        comment.add(comentario);
+        return this;
     }
 
-    public void setaddComment() {
-        this.postagem = postagem;
+    public Post removeComment(PostComment comentario) {
+        comment.remove(comentario);
+        return this;
     }
 
     @Override

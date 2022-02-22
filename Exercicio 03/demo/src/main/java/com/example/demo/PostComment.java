@@ -13,11 +13,10 @@ public class PostComment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Post post;
     private String review;
 
     @ManyToOne
-    private Post postagem;
+    private Post post;
 
     public PostComment() {
     }
@@ -26,7 +25,7 @@ public class PostComment {
         this.id = id;
         this.post = post;
         this.review = review;
-        this.postagem = postagem;
+        this.post = postagem;
     }
 
     public Long getId() {
@@ -54,11 +53,11 @@ public class PostComment {
     }
 
     public Post getPostagem() {
-        return this.postagem;
+        return this.post;
     }
 
     public void setPostagem(Post postagem) {
-        this.postagem = postagem;
+        this.post = postagem;
     }
 
     @Override
