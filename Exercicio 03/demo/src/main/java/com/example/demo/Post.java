@@ -16,7 +16,7 @@ public class Post {
     private Long id;
     private String title;
 
-    @OneToMany
+    @OneToMany(mappedBy = "postagem")
     private List<PostComment> comment;
 
 
@@ -53,11 +53,11 @@ public class Post {
         this.comment = comment;
     }
 
-    public Post addComment(PostComment) {
+    public Post addComment() {
         return this.postagem;
     }
 
-    public void setaddComment(PostComment) {
+    public void setaddComment() {
         this.postagem = postagem;
     }
 

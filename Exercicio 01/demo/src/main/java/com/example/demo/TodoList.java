@@ -16,7 +16,7 @@ public class TodoList {
     private Integer id;
     private String nome;
 
-    @OneToMany
+    @OneToMany(mappedBy = "todolist")
     private List<TodoListItem> todolistitem;
 
     public TodoList(Object object, String string) {
